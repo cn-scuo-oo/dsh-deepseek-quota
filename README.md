@@ -126,9 +126,9 @@ bash install.sh
 |---|---|---|
 | ![01-sidebar](docs/screenshots/01-sidebar-quota-card.png) | ![02-zoom](docs/screenshots/02-quota-card-zoom.png) | ![05-footer](docs/screenshots/05-footer-aligned.png) |
 
-| 充值面板（金额档位 + 支付方式） | 二维码视图（扫码支付） |
+| 充值面板（金额档位 + 支付方式） | 二维码视图（扫码支付，二维码已打码） |
 |---|---|
-| ![03-panel-form](docs/screenshots/03-recharge-panel-form.png) | ![04-panel-qr](docs/screenshots/04-recharge-panel-qr.png) |
+| ![03-panel-form](docs/screenshots/03-recharge-panel-form.png) | ![04-panel-qr](docs/screenshots/04-recharge-panel-qr-blurred.png) |
 
 ## 项目结构
 
