@@ -1,0 +1,34 @@
+{
+  "name": "dsh-deepseek-quota",
+  "description": "DeepSeek API 剩余额度侧边栏卡片 + 充值面板：显示总余额、充值/赠送构成、期间已用与更新时间，每 60 秒自动刷新；卡片内提供「充值」入口，弹出居中充值面板（金额档位与支付方式与官网一致），生成官方充值页二维码供扫码支付（数据来自 DeepSeek 官方 /user/balance 接口）",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "react": "^18.2.0"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT"
+}

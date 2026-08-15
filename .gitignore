@@ -1,0 +1,21 @@
+# Node
+node_modules/
+node-v*/
+.tools/
+
+# 运行期 / 本地
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+
+# 测试缓存
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# 编辑器
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,70 @@
+name: 🐛 Bug 反馈
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间反馈问题！请尽量完整填写以下信息。
+
+  - type: input
+    id: version
+    attributes:
+      label: 插件版本
+      description: package.json 中的 version 字段
+      placeholder: v1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      description: 操作系统 + Node 版本 + DSH 版本
+      placeholder: macOS 14 / Node 22.5.0 / DeepSeek Harness x.y.z
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 做了什么操作触发了问题
+      placeholder: |
+        1. 启动 DSH …
+        2. 展开侧边栏 …
+        3. 观察到 …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 请粘贴错误信息 / 截图 / 控制台报错
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志
+      description: 如有服务端 / 控制台日志请粘贴（注意隐去 API Key 等敏感信息）
+      render: shell
+
+  - type: checkboxes
+    id: security
+    attributes:
+      label: 安全检查
+      description: 确保没有泄露密钥
+      options:
+        - label: 我已确认反馈内容中不包含 API Key / 密码等敏感信息
+          required: true

@@ -1,0 +1,5 @@
+# dsh bundle patch: 将本插件作为一行插入 profile 的组合层。
+# 行的 id 供后续 patch 寻址；name 是包名，从 profile 目录的 node_modules 解析。
+- insert:
+    - id: dsh-quota
+      name: 'dsh-deepseek-quota'
