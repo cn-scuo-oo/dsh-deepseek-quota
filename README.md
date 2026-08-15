@@ -122,9 +122,13 @@ bash install.sh
 
 > 截图来自真实运行实例（开发验证环境）。
 
-| 侧边栏额度卡片（展开态） | 卡片区域放大 |
+| 侧边栏额度卡片（展开态） | 卡片区域放大 | 侧边栏底部（充值入口 + 设置对齐） |
+|---|---|---|
+| ![01-sidebar](docs/screenshots/01-sidebar-quota-card.png) | ![02-zoom](docs/screenshots/02-quota-card-zoom.png) | ![05-footer](docs/screenshots/05-footer-aligned.png) |
+
+| 充值面板（金额档位 + 支付方式） | 二维码视图（扫码支付） |
 |---|---|
-| ![01-sidebar](docs/screenshots/01-sidebar-quota-card.png) | ![02-zoom](docs/screenshots/02-quota-card-zoom.png) |
+| ![03-panel-form](docs/screenshots/03-recharge-panel-form.png) | ![04-panel-qr](docs/screenshots/04-recharge-panel-qr.png) |
 
 ## 项目结构
 
