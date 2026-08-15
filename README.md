@@ -198,7 +198,29 @@ node --check lib/client.js
 
 # 冒烟测试（模块加载 / Host 路由行为 / 余额归一化）
 node --test tests/smoke.test.mjs
+
+# 端到端测试（模拟他人从零安装 → 启动 → 取数，覆盖成功/无Key/无效Key/超时）
+node scripts/mock-deepseek.mjs &          # 本地 mock 上游（:8899，无真实 Key 也能联调）
+node --test tests/e2e-install-test.mjs    # 会临时创建干净 DSH_HOME 执行 install.sh
 ```
+
+> **无真实 Key 联调**：`DEEPSEEK_BASE_URL=http://127.0.0.1:8899` 时插件会走本地 mock 上游，
+> 可完整体验「余额展示 → 刷新 → 充值面板 → 二维码」全流程，无需任何真实凭据。
+
+## 我如何确认「别人装上就能用」？
+
+安装后按此清单快速自检（1 分钟）：
+
+1. **安装成功**：`bash install.sh` 输出 `安装完成`，且 `~/.dsh/profiles/web/package.json`
+   的 `dependencies` 与 `dsh.profile.bundles` 中均出现 `dsh-deepseek-quota`；
+2. **重启 DSH**（或页面 Cmd+R），侧边栏底部「设置」上方出现额度卡片（收起态为 32px 圆形 `¥` 按钮）；
+3. **配置 Key**：设置 → 模型 → 填入 `DEEPSEEK_API_KEY`（与调用模型的 Key 同一把）；
+4. **看到余额**：卡片显示 `¥XX.XX` 大字 + 「充值 ¥X · 赠送 ¥X」+「更新于 HH:MM:SS」；
+5. **刷新**：点右上角刷新图标立即更新；**充值**：点「充值」弹出面板，选金额/支付方式 → 「去支付」出二维码；
+6. **无 Key 联调**：`node scripts/mock-deepseek.mjs` + `DEEPSEEK_BASE_URL=http://127.0.0.1:8899`
+   启动，无需真实凭据即可跑通全流程（CI 的端到端测试即按此路径验证）。
+
+> 常见问题与排查见下方「常见问题」；测试全绿（冒烟 6 例 + 端到端 5 例）是发布的硬性门槛。
 
 ## 许可证与贡献
 

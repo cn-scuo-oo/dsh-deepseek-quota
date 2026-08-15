@@ -24,3 +24,10 @@ jobs:
           node --check lib/client.js
       - name: Smoke tests
         run: node --test tests/smoke.test.mjs
+      - name: E2E install tests
+        run: |
+          node scripts/mock-deepseek.mjs &
+          MOCK_PID=$!
+          sleep 1
+          node --test tests/e2e-install-test.mjs
+          kill $MOCK_PID || true
